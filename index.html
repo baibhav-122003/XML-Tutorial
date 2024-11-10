@@ -1,0 +1,2270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XML Tutorial</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <h1>XML: Your Data's New Best Friend</h1>
+    <div class="header-controls">
+      <!-- Theme Toggle Switch -->
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <!-- Sun icon -->
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon icon -->
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      <div id="hamburger-menu" onclick="toggleSidebar()">☰</div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Sidebar -->
+    <aside>
+      <ul>
+        <li><a href="#home" onclick="showContent('home')">XML Home</a></li>
+        <li><a href="#introduction" onclick="showContent('introduction')">XML Unpacked</a></li>
+        <li><a href="#how-to-use" onclick="showContent('how-to-use')">XML Power-Ups</a></li>
+        <li><a href="#tree" onclick="showContent('tree')">XML Family Tree</a></li>
+        <li><a href="#syntax" onclick="showContent('syntax')">XML Grammar 101</a></li>
+        <li><a href="#elements" onclick="showContent('elements')">XML Building Blocks</a></li>
+        <li><a href="#attributes" onclick="showContent('attributes')">XML Element Add-ons</a></li>
+        <li><a href="#namespaces" onclick="showContent('namespaces')">XML Name Clash?</a></li>
+        <li><a href="#validator" onclick="showContent('validator')">XML Spellcheck</a></li>
+        <li><a href="#dtd" onclick="showContent('dtd')">XML Blueprint</a></li>
+        <li><a href="#schema" onclick="showContent('schema')">XML Schema</a></li>
+        <li><a href="#server" onclick="showContent('server')">XML Server-Side</a></li>
+      </ul>
+    </aside>
+
+    <!-- Content Display Area -->
+    <main id="content-display">
+      <section id="home" class="content-section">
+        <h1>XML: Your Data's New Best Friend</h1>
+        <div class="navigation-buttons">
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <h3>Why Get Cozy with XML?</h3>
+        <p>
+          XML isn't just another tech acronym – it's the secret sauce behind many web applications you use every day.
+          From sharing data online to powering complex systems, XML is a versatile tool that helps software communicate
+          effectively. Getting a grip on XML is key, whether you're building websites, mobile apps, or working with
+          backend systems.
+        </p>
+        <br>
+        <h3>Your XML Journey Starts Here</h3>
+        <br>
+        <p>
+          This fun and friendly tutorial covers everything you need to know to get started with XML:
+        </p>
+        <ul>
+          <li>XML: What's the deal?</li>
+          <li>How XML works its magic.</li>
+          <li>Practical ways to use XML.</li>
+          <li>Real-world applications of XML.</li>
+        </ul>
+      </section>
+
+      <section id="introduction" class="content-section hidden">
+        <h1>XML Unpacked: A Beginner's Guide</h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <p class="intro">XML is like a universal translator for data. It lets you store and move information seamlessly
+          between different software and systems, regardless of the underlying hardware.</p>
+        <hr>
+
+        <h2>What is XML, Anyway?</h2>
+        <ul>
+          <li>XML stands for eXtensible Markup Language – because *you* get to define the markup!</li>
+          <li>Think of it as a cousin of HTML, but focused on data, not display.</li>
+          <li>Its superpowers include storing, transporting, and describing data in a way anyone (or any machine) can
+            understand.</li>
+          <li>Officially approved by the World Wide Web Consortium (W3C).</li>
+        </ul>
+        <hr>
+
+        <h2>XML Doesn't *Do* Stuff (Yet)</h2>
+        <p>Here's the thing: XML itself is just a way to organize information. It's like writing a letter – the letter
+          itself doesn't deliver itself; you need a mail carrier for that.</p>
+        <p>Here's a simple note written in XML:</p>
+        <div class="w3-example">
+          <div class="w3-code notranslate htmlHigh">
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                << /span>note<span class="tagcolor" style="color:mediumblue">></span>
+              </span><br>
+               <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                  << /span>to<span class="tagcolor" style="color:mediumblue">></span>
+                </span>Alice<span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                    style="color:mediumblue">
+                    << /span>/to<span class="tagcolor" style="color:mediumblue">></span>
+                  </span><br>
+                   <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                      << /span>from<span class="tagcolor" style="color:mediumblue">></span>
+                    </span>Bob<span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                        style="color:mediumblue">
+                        << /span>/from<span class="tagcolor" style="color:mediumblue">></span>
+                      </span><br>
+                       <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                          << /span>message<span class="tagcolor" style="color:mediumblue">></span>
+                        </span>Meet me at noon!<span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                            style="color:mediumblue">
+                            << /span>/message<span class="tagcolor" style="color:mediumblue">></span>
+                          </span><br>
+                          <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                              style="color:mediumblue">
+                              << /span>/note<span class="tagcolor" style="color:mediumblue">></span>
+                            </span>
+          </div>
+        </div>
+
+        <p>See how the tags describe the data? But to actually *use* this note, you need an application to read, send,
+          or display it. That's where the real magic happens.</p>
+
+        <div class="w3-yellow w3-padding w3-card-4">
+          <h2>Note</h2>
+          <p>To: Alice</p>
+          <p>From: Bob</p>
+          <p>Meet me at noon!</p>
+        </div>
+        <hr>
+
+        <h2>XML vs. HTML: A Family Feud</h2>
+        <p>XML and HTML are related, but they have different jobs:</p>
+        <ul>
+          <li>XML is all about *what* the data *is*. (Meaning)</li>
+          <li>HTML is about how the data *looks*. (Presentation)</li>
+          <li>HTML uses predefined tags (like `<p>`); XML lets *you* create tags.</li>
+        </ul>
+        <hr>
+        <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+          <div id="adngin-mid_content-0"></div>
+        </div>
+        <hr>
+
+        <h2>Tag Team: XML and its Custom Tags</h2>
+        <p>Unlike HTML, XML doesn't have a set vocabulary of tags. *You* define the tags that make sense for your data.
+          This makes XML incredibly flexible.</p>
+
+        <hr>
+
+        <h2>XML: The Shape-Shifter</h2>
+        <p>XML is designed to be adaptable. Even if you add or remove data later, applications built to handle the old
+          format can usually still understand the core information. This is a huge advantage when dealing with evolving
+          data structures.</p>
+
+        <h2>XML: The Great Simplifier</h2>
+        <ul>
+          <li>Sharing data between different systems becomes a breeze.</li>
+          <li>Transporting data across platforms? No sweat.</li>
+          <li>Upgrading systems without losing your precious data.</li>
+          <li>Making data accessible to humans, computers, and even talking robots!</li>
+        </ul>
+
+
+        <hr>
+
+        <h2>XML: Officially Awesome</h2>
+        <p>Since 1998, XML has been a W3C Recommendation - a big thumbs-up from the web's governing body.</p>
+        <br>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+      </section>
+
+      <section id="how-to-use" class="content-section hidden">
+        <h1>XML Power-Ups: What Can You Do?</h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <p class="intro">XML is a web developer's multi-tool. It's often used to separate data from presentation, making
+          your code cleaner and more flexible. It's also the backbone of data exchange in countless applications.</p>
+        <hr>
+        <h2>Data and Display: A Clean Break</h2>
+        <p>
+          XML keeps your data separate from how it's displayed. This means you can use the same XML data to generate
+          different presentations – on a webpage, in a mobile app, or even read aloud by a screen reader. This
+          separation of concerns is a core principle of good design.
+        </p>
+        <hr>
+        <h2>Tag-Teaming with HTML</h2>
+        <p>
+          XML and HTML work great together. XML handles the data; HTML handles the look and feel. This dynamic duo
+          powers many interactive websites and web applications.
+        </p>
+        <hr>
+        <h2>Data Independence</h2>
+
+        <p>Imagine updating a website every time the data changes – nightmare! XML lets you store data separately, then
+          pull it into your HTML using a few lines of JavaScript. No more constant HTML editing!
+        </p>
+        <button onclick="loadXMLDoc()" class="w3-btn w3-theme">Show the Books »</button>
+        <table id="demo" class="ws-table-all"></table>
+
+
+        <div class="w3-example">
+          <h3>Books.xml Example</h3>
+          <div class="w3-code notranslate htmlHigh">
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                << /span>?xml<span class="attributecolor" style="color:red"> version<span class="attributevaluecolor"
+                      style="color:mediumblue">="1.0"</span> encoding<span class="attributevaluecolor"
+                      style="color:mediumblue">="UTF-8"</span>?</span><span class="tagcolor"
+                    style="color:mediumblue">></span>
+              </span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                  << /span>books<span class="tagcolor" style="color:mediumblue">></span>
+                </span><br>
+                 <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                    << /span>book<span class="attributecolor" style="color:red"> genre<span class="attributevaluecolor"
+                          style="color:mediumblue">="Sci-Fi"</span></span><span class="tagcolor"
+                        style="color:mediumblue">></span>
+                  </span><br>
+                    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                      << /span>title<span class="tagcolor" style="color:mediumblue">></span>
+                    </span>Dune<span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                        style="color:mediumblue">
+                        << /span>/title<span class="tagcolor" style="color:mediumblue">></span>
+                      </span><br>
+                       <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                          << /span>/book<span class="tagcolor" style="color:mediumblue">></span>
+                        </span><br>
+
+                         <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                            << /span>book<span class="attributecolor" style="color:red"> genre<span
+                                  class="attributevaluecolor" style="color:mediumblue">="Fantasy"</span></span><span
+                                class="tagcolor" style="color:mediumblue">></span>
+                          </span><br>
+                            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                              style="color:mediumblue">
+                              << /span>title<span class="tagcolor" style="color:mediumblue">></span>
+                            </span>The Hobbit<span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                                style="color:mediumblue">
+                                << /span>/title<span class="tagcolor" style="color:mediumblue">></span>
+                              </span><br>
+                               <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                                  style="color:mediumblue">
+                                  << /span>/book<span class="tagcolor" style="color:mediumblue">></span>
+                                </span><br>
+                                <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                                    style="color:mediumblue">
+                                    << /span>/books<span class="tagcolor" style="color:mediumblue">></span>
+                                  </span>
+
+
+          </div>
+        </div>
+
+
+
+        <p>The DOM (Document Object Model) section dives deeper into XML and JavaScript interaction.</p>
+
+        <hr>
+        <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+
+          <div id="adngin-mid_content-0"></div>
+
+        </div>
+        <hr>
+
+        <h2>XML: The Data Courier</h2>
+        <p>XML isn't just for web pages. It's the standard format for exchanging all kinds of data, from financial
+          transactions and medical records to scientific measurements and news feeds.</p>
+        <ul>
+          <li>Stock market data</li>
+          <li>Bank transfers</li>
+          <li>Patient information</li>
+          <li>Research results</li>
+          <li>Breaking news</li>
+          <li>Weather reports</li>
+        </ul>
+        <hr>
+
+        <h2>Example: XML News</h2>
+        <p>
+          Imagine a universal language for news! XMLNews is a standard for sharing news articles, making it easy for
+          news organizations and readers to exchange and archive information, regardless of their systems.
+        </p>
+
+
+        <hr>
+        <h2>Example: XML Weather</h2>
+        <p>
+          Ever wonder how weather apps get their data? Organizations like NOAA (National Oceanic and Atmospheric
+          Administration) use XML to share weather information, making it accessible to anyone who needs it.
+        </p>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+      </section>
+
+      <section id="tree" class="content-section hidden">
+        <h1>XML Family Tree: Roots & Branches</h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <p class="intro">Just like a family tree, XML documents have a hierarchical structure. There's a root element at
+          the top, and it branches out to child elements, and so on.</p>
+        <hr>
+        <h2>Visualizing the XML Tree</h2>
+        <div class="w3-section w3-white w3-center">
+          <img src="https://www.w3schools.com/xml/nodetree.gif" alt="DOM node tree" class="w3-image">
+        </div>
+        <hr>
+        <h2>A Bookish Example</h2>
+        <p>
+          The image above shows how an XML document about books might be structured. The `bookstore` element is the
+          root, and each `book` is a child element, containing further details like `title` and `author`.
+        </p>
+        <div class="w3-example">
+          <div class="w3-code notranslate htmlHigh">
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                << /span>?xml<span class="attributecolor" style="color:red"> version<span class="attributevaluecolor"
+                      style="color:mediumblue">="1.0"</span> encoding<span class="attributevaluecolor"
+                      style="color:mediumblue">="UTF-8<strong>"</strong></span>?</span><span class="tagcolor"
+                    style="color:mediumblue">></span>
+              </span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                  << /span>bookstore<span class="tagcolor" style="color:mediumblue">></span>
+                </span><br>
+
+          </div>
+        </div>
+
+        <hr>
+        <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+
+          <div id="adngin-mid_content-0"></div>
+
+        </div>
+        <hr>
+
+        <h2>XML Family Dynamics</h2>
+        <p>
+          We use terms like *parent*, *child*, and *sibling* to describe the relationships between elements in the XML
+          tree. Just like in a real family, elements can have children, parents, and siblings at the same level in the
+          hierarchy. And each element can contain text (like "The Cat in the Hat") and attributes (like
+          "genre='Children'").
+        </p>
+
+        <h2>XML Speaks for Itself</h2>
+        <p>
+          XML is designed to be self-explanatory. The tags themselves describe the data, making it easy for both humans
+          and computers to understand the information. The prolog at the top (e.g., `
+          <?xml version="1.0" encoding="UTF-8"?>`) provides additional information about the document, like the XML
+          version and character encoding.
+        </p>
+        <br>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+      </section>
+
+      <section id="syntax" class="content-section hidden">
+        <h1>XML Grammar 101: Keep it Tidy!</h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <p class="intro">
+          XML is strict about its grammar rules. These rules ensure that your XML documents are well-formed and easily
+          understood by machines. Think of it like writing a computer program - precision is key.
+        </p>
+        <hr>
+        <h2>Every Family Needs a Root</h2>
+        <p>
+          Every XML document must have one root element that acts like the ancestor of all other elements. It's the top
+          of the family tree, and everything else descends from it. For example, in a document about recipes, the root
+          element might be called `<cookbook>`.
+        </p>
+        <hr>
+        <h2>Introducing the Prolog</h2>
+        <p>
+          You might see a line at the beginning of an XML document that looks like this: `
+          <?xml version="1.0" encoding="UTF-8"?>`. This is the XML prolog. It's optional, but recommended, and it must
+          appear at the very beginning. It tells the computer which version of XML you're using and how the characters
+          are encoded (UTF-8 is the most common and usually a good choice).
+
+        </p>
+        <hr>
+        <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+
+          <div id="adngin-mid_content-0"></div>
+
+        </div>
+        <hr>
+        <h2>Closing Time: Tags in Pairs</h2>
+        <p>
+          Unlike HTML, which can sometimes be lenient, XML insists on closing every tag. So, if you open a `<name>` tag,
+            you *must* close it with a `</name>` tag. No exceptions! This keeps things organized and unambiguous.
+        </p>
+        <div class="w3-panel w3-note">
+          <p>The prolog itself doesn't need a closing tag. It's not technically part of the XML document itself; it's
+            more like an introduction.</p>
+        </div>
+
+        <hr>
+        <h2>Case Sensitivity Alert</h2>
+        <p>
+          XML is case-sensitive, which means `<Name>` is different from `<name>`. And if you open a tag with `<Name>`,
+                you must close it with `</Name>`. Consistency is key!
+        </p>
+        <hr>
+        <h2>Nesting Dolls: Proper Nesting</h2>
+        <p>
+          Just like those Russian nesting dolls, XML elements must be properly nested. If you open tag B inside tag A,
+          you must close tag B *before* you close tag A. This ensures a clear, hierarchical structure.
+        </p>
+        <hr>
+        <h2>Quote Me on This: Attribute Values</h2>
+        <p>
+          XML attributes, like `id="123"`, must always have their values enclosed in quotes – either single or double.
+          This helps the computer understand where the attribute value begins and ends.
+
+        </p>
+        <hr>
+        <h2>Special Characters: Entity References</h2>
+        <p>
+          Certain characters, like < and &>, have special meanings in XML. To use them literally, you need to use
+            "entity references": `&lt;` for <, `&gt;` for>, and `&amp;` for &. This prevents the computer from
+              misinterpreting these characters as part of the XML structure.
+
+        </p>
+        <hr>
+        <h2>XML Whispers: Comments</h2>
+        <p>
+          You can add comments to your XML code just like in HTML: `<!-- This is a comment -->`. Comments are ignored by
+          the computer, but they're useful for explaining your code to yourself or others.
+        </p>
+        <hr>
+        <h2>White Space Matters</h2>
+        <p>
+          Unlike HTML, XML preserves white space (spaces, tabs, newlines). So, if you have multiple spaces between
+          words, XML will keep them.
+        </p>
+        <hr>
+        <h2>Newlines: The LF Standard</h2>
+        <p>
+          XML uses line feed (LF) characters to represent newlines. This is the standard for Unix and macOS. Windows
+          typically uses carriage return and line feed (CRLF), but you should stick to LF in your XML documents.
+        </p>
+        <hr>
+        <h2>Well-Formed XML: The Gold Standard</h2>
+        <p>
+          If your XML document follows all these rules, it's considered "well-formed." A well-formed document is a happy
+          document, ready to be used by your applications.
+        </p>
+      </section>
+
+
+      <section id="elements" class="content-section hidden">
+        <h1>XML Building Blocks: The Elements</h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <p class="intro">XML elements are the fundamental components of an XML document, just like words are the
+          building blocks of sentences. They contain the actual data and provide its structure.</p>
+        <hr>
+
+        <h2>Anatomy of an XML Element</h2>
+        <p>An XML element is everything from its start tag (including the tag itself) to its end tag. Think of it as a
+          container for your data.</p>
+        <div class="w3-example">
+          <div class="w3-code notranslate w3-large htmlHigh">
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                << /span>name<span class="tagcolor" style="color:mediumblue">></span>
+              </span>Alice<span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                  style="color:mediumblue">
+                  << /span>/name<span class="tagcolor" style="color:mediumblue">></span>
+                </span>
+          </div>
+        </div>
+        <p>Elements can hold various types of content:</p>
+        <ul>
+          <li>Text: Like the "Alice" in the example above.</li>
+          <li>Attributes: Metadata about the element, like `id="123"`.</li>
+          <li>Other elements: Elements can be nested within other elements, forming a tree structure.</li>
+          <li>A mix of the above: Elements can contain a combination of text, attributes, and other elements.</li>
+        </ul>
+        <div class="w3-example">
+          <div class="w3-code notranslate htmlHigh">
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                << /span>user<span class="attributecolor" style="color:red"> id<span class="attributevaluecolor"
+                      style="color:mediumblue">="123"</span></span><span class="tagcolor"
+                    style="color:mediumblue">></span>
+              </span><br>
+               <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                  << /span>name<span class="tagcolor" style="color:mediumblue">></span>
+                </span>Bob<span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                    style="color:mediumblue">
+                    << /span>/name<span class="tagcolor" style="color:mediumblue">></span>
+                  </span><br>
+                  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                      << /span>/user<span class="tagcolor" style="color:mediumblue">></span>
+                    </span>
+
+
+          </div>
+        </div>
+
+        <p>In this example:</p>
+        <ul>
+          <li>`<name>` has text content ("Bob").</li>
+          <li>`<user>` has element content (`<name>`).</li>
+          <li>`<user>` has an attribute (`id="123"`).</li>
+        </ul>
+        <hr>
+        <h2>Empty Elements: Lightweight Champs</h2>
+        <p>
+          Some elements don't have any content, like a line break in HTML (`<br>`). In XML, you can write empty elements
+          in two ways: `<empty></empty>` or `
+          <empty />`. Both achieve the same result. Empty elements can still have attributes.
+
+        </p>
+
+        <hr>
+        <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+
+          <div id="div-gpt-ad-1493883843099-0" style="display: inline-block">
+            <script>
+              uic_r_g();
+            </script>
+          </div>
+
+        </div>
+        <hr>
+        <h2>XML Naming Rules: Choose Wisely</h2>
+        <p>
+          XML elements must follow these naming conventions:
+        </p>
+        <ul>
+          <li>Case-sensitive: `<name>` is different from `<Name>`.</li>
+          <li>Start with a letter or underscore: `<_name>` is valid, but `<1name>` is not.</li>
+          <li>No "xml" at the beginning (in any case): `<xmlName>` is invalid.</li>
+          <li>Letters, digits, hyphens, underscores, and periods are allowed: `<my-name_1.0>` is valid.</li>
+          <li>No spaces: `<my name>` is invalid. Use underscores or camelCase instead.</li>
+        </ul>
+        <hr>
+        <h2>Naming Best Practices: Keep it Clean</h2>
+        <p>
+          Follow these tips for creating readable and maintainable XML:
+        </p>
+        <ul>
+          <li>Descriptive names: Use names that clearly indicate the element's purpose, like `<product_name>`.</li>
+          <li>Short and sweet: Avoid overly long names like `<the_name_of_the_product>`.</li>
+          <li>Avoid hyphens, periods, and colons (except for namespaces): These characters can sometimes cause confusion
+            with XML processors.</li>
+          <li>Be consistent: Choose a naming style (e.g., camelCase, snake_case) and stick with it throughout your
+            document.</li>
+        </ul>
+        <hr>
+        <h2>XML's Extensibility: Future-Proofing Your Data</h2>
+        <p>
+          One of XML's strengths is its extensibility. You can add new elements to your XML documents without breaking
+          existing applications. Imagine you have an application that reads customer data (name, address). Later, you
+          want to add a phone number. With XML, you can add a new `<phone>` element without affecting the application's
+            ability to read the existing name and address data.
+        </p>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+      </section>
+
+      <section id="attributes" class="content-section hidden">
+        <h1>XML Element Add-ons: Attributes</h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <p class="intro">Attributes provide additional information about XML elements, like metadata. They are always
+          contained within the start tag of an element.</p>
+        <hr>
+        <h2>Quote Unquote: Attributed Values</h2>
+        <p>
+          Attribute values *must* be enclosed in quotes – single or double. If the value itself contains double quotes,
+          use single quotes to enclose it (or escape the double quotes with `&quot;`).
+        </p>
+
+        <hr>
+        <h2>Elements vs. Attributes: The Showdown</h2>
+        <p>
+          Should you use an element like `<gender>female</gender>` or an attribute like `gender="female"`? Both are
+          valid and convey the same information. There are no hard-and-fast rules, but generally, attributes are best
+          for metadata (information *about* the data) while elements are for the actual data itself.
+        </p>
+        <hr>
+        <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+
+          <div id="adngin-mid_content-0"></div>
+
+        </div>
+        <hr>
+        <h2>A Matter of Style: Nested Elements</h2>
+        <p>
+          Sometimes it makes sense to use nested elements instead of a long string of attributes. For example,
+          representing a date as `<date>
+            <year>2024</year>
+            <month>10</month>
+          </date>` is often clearer and more flexible than `date="2024-10"`.
+        </p>
+        <hr>
+
+        <h2>Attribute Abuse: When Less is More</h2>
+        <p>
+          Avoid overloading elements with too many attributes. If you find yourself adding many attributes, consider
+          using nested elements for better structure and readability. XML is about clear, structured data – don't let a
+          jumble of attributes get in the way.
+        </p>
+        <hr>
+        <h2>Attributes for Metadata: The Perfect Match</h2>
+        <p>
+          Attributes are great for storing metadata – information *about* the data, rather than the data itself. For
+          example, an `id` attribute can be used to uniquely identify an element, just like in HTML. This `id` isn't
+          part of the element's core data, but rather helps to identify and refer to it.
+        </p>
+
+
+      </section>
+
+      <section id="namespaces" class="content-section hidden">
+        <h1>XML Name Clash? Namespaces to the Rescue!</h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <p class="intro">
+          Imagine two people named "Bob" in the same room – how do you tell them apart? XML Namespaces solve a similar
+          problem with XML elements. They prevent naming conflicts when combining XML documents from different sources.
+        </p>
+        <hr>
+        <h2>Name Collision: When Tags Collide</h2>
+        <p>
+          XML allows you to create custom tags, but what if two different XML documents use the same tag name for
+          different purposes? For example, `
+        <table>` could represent an HTML table in one document and a furniture table in another. Namespaces prevent
+          these naming collisions.
+          </p>
+
+          <hr>
+          <h2>Prefixes: Giving Tags Nicknames</h2>
+          <p>
+            Namespaces use prefixes to give tags unique identifiers. For example, `<h:table>` could represent an HTML
+              table, while `<f:table>` could represent a furniture table. The prefixes ("h" and "f") prevent confusion.
+          </p>
+          <hr>
+          <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+            <div id="div-gpt-ad-1493883843099-0" style="display: inline-block">
+              <script>
+                uic_r_g();
+              </script>
+            </div>
+
+          </div>
+          <hr>
+          <h2>xmlns: Declaring Your Namespace</h2>
+          <p>
+            You declare a namespace using the `xmlns` attribute. For example, `xmlns:h="http://www.w3.org/TR/html4/"`
+            associates the "h" prefix with the HTML namespace. Now, any tag using the "h" prefix (like `<h:table>`) is
+              clearly identified as belonging to the HTML namespace.
+          </p>
+          <hr>
+          <h2>URI: A Unique Identifier</h2>
+          <p>
+            The URI (Uniform Resource Identifier) in the `xmlns` declaration, like "http://www.w3.org/TR/html4/", acts
+            as a unique identifier for the namespace. It's like a family name. The parser doesn't actually *use* the URI
+            to retrieve information, but it helps distinguish between different namespaces.
+          </p>
+
+          <hr>
+          <h2>Default Namespaces: Simplifying Your Code</h2>
+          <p>
+            If you're using a namespace extensively, you can set a default namespace for an element. This saves you from
+            having to use a prefix on every tag within that element. For example, `xmlns="http://www.w3.org/TR/html4/"`
+            sets the default namespace to HTML. Now, any tag without a prefix within that element is automatically part
+            of the HTML namespace.
+          </p>
+          <hr>
+          <h2>Namespaces in Action: XSLT Transformation</h2>
+          <p>
+            Namespaces are commonly used in XSLT (Extensible Stylesheet Language Transformations), which is a language
+            for transforming XML documents. The XSLT namespace identifies XSLT elements within a document, allowing you
+            to apply transformations without confusing them with regular XML elements.
+          </p>
+
+      </section>
+
+      <section id="display" class="content-section hidden">
+        <h1>XML on Display: Show Off Your Data</h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <p class="intro">
+          Browsers can display raw XML files, but don't expect them to look like formatted HTML pages. XML is about
+          data, not presentation. Browsers usually display XML with color-coded elements and expandable/collapsible
+          sections.
+        </p>
+        <hr>
+        <h2>Peeking at XML: Browser View</h2>
+        <p>
+          Most browsers provide a basic way to view XML documents, often with color-coding for tags and text, and +/-
+          buttons to expand or collapse element hierarchies. You can also use "View Source" to see the raw XML code.
+        </p>
+        <p>Look at this XML file in your browser: <a target="_blank" href="note.xml">note.xml</a></p>
+
+
+        <hr>
+        <h2>Spotting Errors: Invalid XML</h2>
+        <p>
+          If you open an XML file with syntax errors (like a missing closing tag), most browsers will display an error
+          message, indicating the nature and location of the problem. This helps you debug your XML.
+        </p>
+
+        <hr>
+        <h2>More XML Treats: Examples</h2>
+        <p>
+          Explore these different XML examples to get a better feel for how XML is used to represent various kinds of
+          data:
+        </p>
+        <ul>
+          <li><a target="_blank" href="menu.xml">A restaurant menu</a></li>
+          <li><a target="_blank" href="products.xml">A product catalog</a></li>
+          <li><a target="_blank" href="movies.xml">A movie database</a></li>
+        </ul>
+
+
+        <hr>
+        <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+          <div id="adngin-mid_content-0"></div>
+
+        </div>
+        <hr>
+        <h2>XML's Bare-Bones Display: Why So Plain?</h2>
+        <p>
+          XML is purely about data structure. Browsers don't know how to present the data visually without additional
+          instructions. To style your XML for display, you'll need to use something like XSLT (eXtensible Stylesheet
+          Language Transformations), which lets you transform XML into HTML or other presentation formats.
+        </p>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+      </section>
+
+      <section id="httprequest" class="content-section hidden">
+        <h1>Data Fetching Magic: XML Http Request</h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <p class="intro">
+          Modern browsers have a built-in tool called XMLHttpRequest (XHR) that lets you fetch data from a server
+          without refreshing the entire page. It's the engine behind AJAX (Asynchronous JavaScript and XML), which
+          powers many dynamic web applications.
+        </p>
+        <hr>
+        <h2>XMLHttpRequest: The AJAX Powerhouse</h2>
+        <p>
+          XMLHttpRequest allows you to:
+        </p>
+        <ul>
+          <li>Update parts of a webpage without a full reload, making your site feel snappier.</li>
+          <li>Fetch data from the server *after* the initial page load, enabling dynamic content updates.</li>
+          <li>Send data to the server silently in the background, allowing for seamless user interactions.</li>
+        </ul>
+        <hr>
+        <h2>XMLHttpRequest in Action: A Live Example</h2>
+        <p>
+          Try typing in the box below. Each character you type triggers an XHR request, fetching suggestions from the
+          server without refreshing the page. Magic!
+        </p>
+        <div class="w3-example">
+          <h3>Name Suggester</h3>
+          <form action="javascript:void(0);" class="w3-code-result">
+            <p><b>Start typing a name:</b></p>
+            <p>
+              Name: <input type="text" id="txt1" onkeyup="showHint(this.value)" size="20">
+                Suggestions: <span id="txtHint"></span>
+            </p>
+          </form>
+
+        </div>
+
+        <div class="w3-panel w3-note">
+          <p>We'll dive deeper into AJAX later in this tutorial.</p>
+        </div>
+
+
+        <hr>
+        <h2>Making the Request: XHR Code</h2>
+        <p>
+          Here's a typical JavaScript snippet for using XMLHttpRequest:
+        </p>
+        <div class="w3-example">
+          <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+              <span class="jskeywordcolor" style="color:mediumblue">var</span> xhttp = <span class="jskeywordcolor"
+                style="color:mediumblue">new</span> XMLHttpRequest();<br>xhttp.<span class="jspropertycolor"
+                style="color:black">onreadystatechange</span> = <span class="jskeywordcolor"
+                style="color:mediumblue">function</span>() {<br><span class="jsnumbercolor" style="color:red">
+              </span>    <span class="jskeywordcolor" style="color:mediumblue">if</span> (<span class="jskeywordcolor"
+                style="color:mediumblue">this</span>.<span class="jspropertycolor" style="color:black">readyState</span>
+              == <span class="jsnumbercolor" style="color:red">4</span> && <span class="jskeywordcolor"
+                style="color:mediumblue">this</span>.<span class="jspropertycolor" style="color:black">status</span> ==
+              <span class="jsnumbercolor" style="color:red">200</span>) {<br><span class="jsnumbercolor"
+                style="color:red">
+              </span>        <span class="commentcolor" style="color:green">// Action to perform when data is
+                ready<br></span>       <span class="jsnumbercolor" style="color:red">
+              </span> document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span
+                class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor"
+                style="color:black">innerHTML</span> = xhttp.<span class="jspropertycolor"
+                style="color:black">responseText</span>;<br><span class="jsnumbercolor" style="color:red">
+              </span>    }<br>};<br>
+              xhttp.<span class="jspropertycolor" style="color:black">open</span>(<span class="jsstringcolor"
+                style="color:brown">"GET"</span>, <span class="jsstringcolor"
+                style="color:brown">"<em>data.xml</em>"</span>, <span class="jskeywordcolor"
+                style="color:mediumblue">true</span>);<br>
+              xhttp.<span class="jspropertycolor" style="color:black">send</span>();<span class="jsnumbercolor"
+                style="color:red">
+              </span> </span></div>
+
+        </div>
+
+        <hr>
+        <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+
+          <div id="adngin-mid_content-0"></div>
+
+        </div>
+        <hr>
+        <h2>Breaking Down the XHR Code</h2>
+        <ol>
+          <li>Create an XMLHttpRequest object: `new XMLHttpRequest()`</li>
+          <li>Define what to do when the server responds: `onreadystatechange`</li>
+          <li>Check if the request is complete and successful: `readyState == 4` and `status == 200`</li>
+          <li>Update the webpage with the server's response: `responseText`</li>
+          <li>Open the request (specify method, URL, async): `open("GET", "data.xml", true)`</li>
+          <li>Send the request: `send()`</li>
+        </ol>
+        <div class="w3-panel w3-note">
+          <p>The AJAX chapters will cover XMLHttpRequest in detail.</p>
+        </div>
+        <br>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+      </section>
+
+      <section id="parser" class="content-section hidden">
+        <h1>XML Decoder: The Parser</h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <p class="intro">
+          Browsers have a built-in XML parser – a tool that reads XML and makes it usable by your JavaScript code. It
+          transforms raw XML text into a structured object that you can easily navigate and manipulate.
+        </p>
+        <hr>
+        <h2>XML Parser: Making Sense of XML</h2>
+        <p>
+          The XML DOM (Document Object Model) provides methods to interact with XML data, but first, the XML needs to be
+          parsed – transformed from plain text into a DOM tree. The browser's built-in parser handles this for you.
+        </p>
+        <hr>
+        <h2>From Text to Tree: Parsing a String</h2>
+        <p>
+          Here's how you parse an XML string in JavaScript:
+        </p>
+        <div class="w3-example">
+          <div class="w3-code notranslate jsHigh">
+            <span class="jscolor" style="color:black">
+              <span class="jskeywordcolor" style="color:mediumblue">const</span> parser = <span class="jskeywordcolor"
+                style="color:mediumblue">new</span> DOMParser();<br>
+              <span class="jskeywordcolor" style="color:mediumblue">const</span> xmlString = <span class="jsstringcolor"
+                style="color:brown">"<message>Hello, world!</message>"</span>;<br>
+              <span class="jskeywordcolor" style="color:mediumblue">const</span> xmlDoc = parser.<span
+                class="jspropertycolor" style="color:black">parseFromString</span>(xmlString, <span
+                class="jsstringcolor" style="color:brown">"text/xml"</span>);
+            </span>
+          </div>
+        </div>
+        <p>
+          Now `xmlDoc` holds a DOM object representing the parsed XML, ready for manipulation with DOM methods like
+          `getElementsByTagName()`.
+        </p>
+        <hr>
+        <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+          <div id="adngin-mid_content-0"></div>
+        </div>
+        <hr>
+        <h2>XMLHttpRequest's Built-in Parser</h2>
+        <p>
+          XMLHttpRequest has its own XML parser! The `responseXML` property directly provides the parsed XML as a DOM
+          object. No need for a separate `DOMParser`.
+        </p>
+
+        <div class="w3-example">
+          <p>
+            Fetch "books.xml" and use the parsed response:
+          </p>
+          <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+              <span class="commentcolor" style="color:green">// ... XMLHttpRequest code ...</span><br>
+              <span class="jskeywordcolor" style="color:mediumblue">const</span> xmlDoc = xhttp.responseXML;<br>
+              <span class="commentcolor" style="color:green">// Now use xmlDoc with DOM methods</span>
+            </span></div>
+        </div>
+        <br>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+      </section>
+
+      <section id="dom" class="content-section hidden">
+        <h1>XML DOM: Your Data's Control Panel</h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <h2>DOM: The Document Whisperer</h2>
+        <p>
+          The DOM (Document Object Model) is like a universal translator for web documents. It lets your code interact
+          with both HTML and XML in a consistent way, turning them into structured, accessible objects. Think of it as a
+          control panel for your document's content.
+        </p>
+        <div class="w3-panel w3-leftbar w3-light-grey">
+          <p>
+            <i>"The W3C Document Object Model (DOM) is a platform and language-neutral interface. It allows programs and
+              scripts to dynamically access and update a document's content, structure, and style."</i>
+          </p>
+        </div>
+        <p>
+          The HTML DOM lets you control HTML; the XML DOM handles XML. They work similarly, representing the document as
+          a tree of nodes that you can manipulate.
+        </p>
+        <div class="w3-panel w3-note">
+          <p>
+            Understanding the DOM is essential for web development, whether you're working with HTML, XML, or both.
+          </p>
+        </div>
+        <hr>
+        <h2>HTML DOM: Manipulating Web Pages</h2>
+        <p>
+          The HTML DOM lets you change content, add elements, modify styles – virtually anything on a web page.
+        </p>
+        <div class="w3-example">
+          <h3>Changing HTML Content</h3>
+          <div class="w3-code notranslate htmlHigh">
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                << /span>p<span class="attributecolor" style="color:red"> id<span class="attributevaluecolor"
+                      style="color:mediumblue">="myParagraph"</span></span><span class="tagcolor"
+                    style="color:mediumblue">></span>
+              </span>Original text<span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                  style="color:mediumblue">
+                  << /span>/p<span class="tagcolor" style="color:mediumblue">></span>
+                </span><br><br>
+                <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">
+                    << /span>button<span class="attributecolor" style="color:red"> type<span class="attributevaluecolor"
+                          style="color:mediumblue">="button"</span><br>onclick<span class="attributevaluecolor"
+                          style="color:mediumblue">="document.getElementById('myParagraph').innerHTML =
+                          'New text!'"</span></span><span class="tagcolor" style="color:mediumblue">></span>
+                  </span>Click Me!<br><span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                      style="color:mediumblue">
+                      << /span>/button<span class="tagcolor" style="color:mediumblue">></span>
+                    </span>
+          </div>
+        </div>
+
+        <div class="w3-panel w3-note">
+          <p>
+            Our JavaScript tutorial covers the HTML DOM in depth.
+          </p>
+        </div>
+
+        <hr>
+        <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+          <div id="adngin-mid_content-0"></div>
+        </div>
+        <hr>
+        <h2>XML DOM: Taming XML Data</h2>
+        <p>
+          Just like the HTML DOM, the XML DOM lets you access and modify XML data – get element content, change
+          attribute values, add or remove nodes. The XML DOM treats your XML document like a tree, making it easy to
+          navigate and manipulate its structure.
+
+        </p>
+        <div class="w3-example">
+          <p>
+            This code gets the title of the first book in "books.xml":
+          </p>
+          <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+              <span class="commentcolor" style="color:green">// Assuming 'xmlDoc' is your XML DOM object</span><br>
+              <span class="jskeywordcolor" style="color:mediumblue">const</span> title = xmlDoc.<span
+                class="jspropertycolor" style="color:black">getElementsByTagName</span>(<span class="jsstringcolor"
+                style="color:brown">"title"</span>)[<span class="jsnumbercolor" style="color:red">0</span>].<span
+                class="jspropertycolor" style="color:black">childNodes</span>[<span class="jsnumbercolor"
+                style="color:red">0</span>].<span class="jspropertycolor" style="color:black">nodeValue</span>;
+            </span></div>
+        </div>
+
+        <div class="w3-panel w3-note">
+          <p>
+            The XML DOM is the standard way to interact with XML data in your code.
+          </p>
+        </div>
+        <p>
+          Parsing XML is simple using `DOMParser`:
+        </p>
+        <div class="w3-example">
+          <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+              <span class="jskeywordcolor" style="color:mediumblue">const</span> parser = <span class="jskeywordcolor"
+                style="color:mediumblue">new</span> DOMParser();<br>
+              <span class="jskeywordcolor" style="color:mediumblue">const</span> xmlString = <span class="jsstringcolor"
+                style="color:brown">"<bookstore>
+                  <book>
+                    <title>Everyday Italian</title>
+                  </book>
+                </bookstore>"</span>;<br>
+              <span class="jskeywordcolor" style="color:mediumblue">const</span> xmlDoc = parser.<span
+                class="jspropertycolor" style="color:black">parseFromString</span>(xmlString, <span
+                class="jsstringcolor" style="color:brown">"text/xml"</span>);
+            </span></div>
+        </div>
+        <br>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+      </section>
+
+      <section id="xpath" class="content-section hidden">
+        <h1>XML Navigation: Using XPath</h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <div class="w3-panel w3-info">
+          <h2>XPath: The XML GPS</h2>
+          <p>
+            XPath is like a GPS for XML documents. It lets you pinpoint specific elements, attributes, or even text
+            within the complex hierarchy of an XML tree. It's a crucial part of XSLT and other XML technologies.
+          </p>
+        </div>
+        <hr>
+
+        <p>
+          XPath uses path expressions – think of them as directions – to navigate through an XML document. It has a
+          library of functions and is supported by many programming languages.
+        </p>
+        <hr>
+        <h2>XPath and XSLT: A Powerful Duo</h2>
+        <p>
+          XPath is a core component of XSLT (Extensible Stylesheet Language Transformations). XSLT uses XPath to select
+          parts of an XML document for transformation. So, learning XPath unlocks the full potential of XSLT.
+        </p>
+        <hr>
+        <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+          <div id="div-gpt-ad-1493883843099-0" style="display: inline-block">
+            <script>
+              uic_r_g();
+            </script>
+          </div>
+
+        </div>
+        <hr>
+        <h2>XPath by Example</h2>
+        <p>
+          Let's say you have an XML document representing a music library. XPath lets you select things like "all
+          artists whose names start with 'A'," or "the third song in the album 'Dark Side of the Moon'."
+        </p>
+        <p>
+          Here's a simple example: `/musiclibrary/album[1]/song[2]` selects the second song in the first album. XPath is
+          concise and powerful.
+        </p>
+        <hr>
+        <h2>XPath Tutorial: Delving Deeper</h2>
+        <div class="w3-panel w3-note">
+          <p>
+            Our dedicated XPath Tutorial will take you on a guided tour of this powerful language.
+          </p>
+        </div>
+        <br>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+      </section>
+
+      <section id="xslt" class="content-section hidden">
+        <h1>XML Makeover: Transform with XSLT</h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <p class="intro">
+          XSLT (Extensible Stylesheet Language Transformations) is XML's styling superhero. While CSS styles HTML, XSLT
+          transforms XML – into HTML, plain text, or another XML format. Think of it as giving your XML a complete
+          makeover.
+        </p>
+        <hr>
+        <h2>XSLT: The XML Transformer</h2>
+        <p>
+          XSLT is much more powerful than CSS. It can add, remove, rearrange, and sort elements; make decisions based on
+          conditions; and generally reshape your XML into whatever format you need. It leverages XPath to target
+          specific parts of the XML.
+        </p>
+        <hr>
+        <h2>XSLT in Action: A Simple Example</h2>
+        <p>
+          Imagine you have XML representing a list of products. XSLT can transform that XML into an HTML table, ready to
+          be displayed on a web page, or a plain text list for a report.
+        </p>
+        <hr>
+        <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+
+          <div id="adngin-mid_content-0"></div>
+
+        </div>
+        <hr>
+        <h2>Try XSLT Yourself</h2>
+        <div class="w3-example">
+          <p>
+            See how XSLT transforms XML into HTML:
+          </p>
+          <a target="_blank" href="transform_example.xml" class="w3-btn w3-margin-bottom">Transform XML with XSLT</a>
+        </div>
+        <br>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+      </section>
+
+      <section id="xquery" class="content-section hidden">
+        <h1>XML Data Whisperer: XQuery</h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <div class="w3-panel w3-info">
+          <h2>XQuery: Asking Questions of Your XML</h2>
+          <p>
+            XQuery is XML's query language – think of it as the SQL of the XML world. It lets you ask specific questions
+            of your XML data and get back the information you need.
+          </p>
+        </div>
+        <hr>
+        <h2>XQuery Example</h2>
+        <div class="w3-example">
+          <div class="w3-code notranslate">
+            <span class="commentcolor" style="color:green">// Find all books with price > 30</span><br>
+            for $x in doc("books.xml")/bookstore/book<br>
+            where $x/price>30<br>
+            return $x/title
+          </div>
+        </div>
+
+        <hr>
+
+        <p>
+          XQuery is designed specifically for querying XML data. It's supported by most major databases and is a W3C
+          recommendation.
+        </p>
+
+        <hr>
+        <h2>XQuery's Power: Data Extraction</h2>
+        <p>
+          XQuery is all about extracting the data you need from your XML documents. For example, you could use XQuery to
+          find all customers in a certain city from a customer database stored as XML.
+        </p>
+
+        <hr>
+        <h2>XPath and XQuery: Two Sides of the Same Coin</h2>
+
+        <p>XQuery 1.0 and XPath 2.0 share the same data model and support the same functions
+          and operators. If you have already studied XPath you will have no problems with
+          understanding XQuery.</p>
+
+        <hr>
+
+        <h2>XQuery - Examples of Use</h2>
+        <p>XQuery can be used to:</p>
+        <ul>
+          <li>Extract information to use in a Web Service</li>
+          <li>Generate summary reports</li>
+          <li>Transform XML data to XHTML</li>
+          <li>Search Web documents for relevant information</li>
+        </ul>
+        <hr>
+
+        <h2>XQuery is a W3C Recommendation</h2>
+        <p>XQuery is compatible with several W3C standards, such as XML, Namespaces,
+          XSLT, XPath, and XML Schema.</p>
+        <p>XQuery 1.0 became a W3C Recommendation in 2007.</p>
+        <hr>
+
+        <h2>XQuery Tutorial</h2>
+        <div class="w3-panel w3-note">
+          <p>You will learn a lot more about XQuery in our <a href="xquery_intro.asp">XQuery Tutorial</a>.</p>
+        </div>
+        <br>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+      </section>
+
+      <section id="xlink" class="content-section hidden">
+        <h1>XML<span class="color_h1">, XLink and XPointer</span></h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <p class="intro">XLink is used to create hyperlinks in XML documents.</p>
+        <hr>
+
+        <table style="width:100%;border:0">
+          <tbody>
+            <tr>
+              <td style="vertical-align:top;width:165px">
+                <img src="https://www.w3schools.com/xml/pic_xpath.gif" alt="XPath">
+              </td>
+              <td>
+                <ul>
+                  <li>XLink is used to create hyperlinks within XML documents</li>
+                  <li>Any element in an XML document can behave as a link</li>
+                  <li>With XLink, the links can be defined outside the linked files</li>
+                  <li>XLink is a W3C Recommendation</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <h2>XLink Browser Support</h2>
+        <p>There is no browser support for XLink in XML documents.</p>
+        <p>However, all major
+          browsers support <a href="/graphics/svg_text.asp">XLinks in SVG</a>.</p>
+        <hr>
+        <h2>XLink Syntax</h2>
+        <p>In HTML, the &lt;a&gt; element
+          defines a hyperlink. However, this is not how it works in XML. In XML documents, you can use
+          whatever element names you want - therefore it is impossible for browsers to predict
+          what link elements will be called in XML documents.</p>
+        <p>Below is a simple example of how to use XLink to create links in an XML document:</p>
+
+        <div class="w3-example">
+          <div class="w3-code notranslate htmlHigh">
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>?xml<span class="attributecolor" style="color:red"> version<span
+                  class="attributevaluecolor" style="color:mediumblue">="1.0"</span> encoding<span
+                  class="attributevaluecolor" style="color:mediumblue">="UTF-8"</span>?</span><span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>homepages<span class="attributecolor" style="color:red">
+                xmlns:xlink<span class="attributevaluecolor"
+                  style="color:mediumblue">="http://www.w3.org/1999/xlink"</span></span><span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>&nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>homepage<span class="attributecolor" style="color:red">
+                xlink:type<span class="attributevaluecolor" style="color:mediumblue">="simple"</span>
+                xlink:href<span class="attributevaluecolor"
+                  style="color:mediumblue">="https://www.w3schools.com"</span></span><span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>Visit W3Schools<span class="tagnamecolor"
+              style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/homepage<span
+                class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>homepage<span class="attributecolor" style="color:red">
+                xlink:type<span class="attributevaluecolor" style="color:mediumblue">="simple"</span>
+                xlink:href<span class="attributevaluecolor"
+                  style="color:mediumblue">="http://www.w3.org"</span></span><span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>Visit W3C<span class="tagnamecolor" style="color:brown"><span
+                class="tagcolor" style="color:mediumblue">&lt;</span>/homepage<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span
+                class="tagcolor" style="color:mediumblue">&lt;</span>/homepages<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>
+          </div>
+        </div>
+
+        <p>To get access to the XLink features we must declare the XLink namespace. The XLink namespace is:
+          "http://www.w3.org/1999/xlink".</p>
+        <p>The xlink:type and the xlink:href attributes in the &lt;homepage&gt; elements come from the
+          XLink namespace.</p>
+        <p>The xlink:type="simple" creates a simple "HTML-like" link (means "click here
+          to go there").</p>
+        <p>The xlink:href attribute specifies the URL to link to.</p>
+        <hr>
+
+        <h2>XLink Example</h2>
+        <p>The following XML document contains XLink features:</p>
+
+        <div class="w3-example">
+          <div class="w3-code notranslate htmlHigh">
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>?xml<span class="attributecolor" style="color:red"> version<span
+                  class="attributevaluecolor" style="color:mediumblue">="1.0"</span> encoding<span
+                  class="attributevaluecolor" style="color:mediumblue">="UTF-8"</span>?</span><span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>bookstore<span class="attributecolor" style="color:red">
+                xmlns:xlink<span class="attributevaluecolor"
+                  style="color:mediumblue">="http://www.w3.org/1999/xlink"</span></span><span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>book<span class="attributecolor" style="color:red"> title<span
+                  class="attributevaluecolor" style="color:mediumblue">="Harry Potter"</span></span><span
+                class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>description<span class="attributecolor" style="color:red"><br>
+                &nbsp;
+                xlink:type<span class="attributevaluecolor" style="color:mediumblue">="simple"</span><br>
+                &nbsp;
+                xlink:href<span class="attributevaluecolor" style="color:mediumblue">="/images/HPotter.gif"</span><br>
+                &nbsp;
+                xlink:show<span class="attributevaluecolor" style="color:mediumblue">="new"</span></span><span
+                class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            As his fifth year at Hogwarts School of Witchcraft and<br>
+            &nbsp;
+            Wizardry approaches, 15-year-old Harry Potter is.......<br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/description<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/book<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>book<span class="attributecolor" style="color:red"> title<span
+                  class="attributevaluecolor" style="color:mediumblue">="XQuery Kick Start"</span></span><span
+                class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>description<span class="attributecolor" style="color:red"><br>
+                &nbsp;
+                xlink:type<span class="attributevaluecolor" style="color:mediumblue">="simple"</span><br>
+                &nbsp;
+                xlink:href<span class="attributevaluecolor" style="color:mediumblue">="/images/XQuery.gif"</span><br>
+                &nbsp;
+                xlink:show<span class="attributevaluecolor" style="color:mediumblue">="new"</span></span><span
+                class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            XQuery Kick Start delivers a concise introduction<br>
+            &nbsp;
+            to the XQuery standard.......<br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/description<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/book<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/bookstore<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>
+          </div>
+        </div>
+
+        <p><strong>Example explained:</strong></p>
+        <ul>
+          <li>The XLink namespace is declared at the top of the
+            document (xmlns:xlink="http://www.w3.org/1999/xlink")</li>
+          <li>The xlink:type="simple" creates a simple "HTML-like" link</li>
+          <li>The xlink:href attribute specifies the URL to link to (in this case - an image)</li>
+          <li>The xlink:show="new" specifies that the link should open in a new window</li>
+        </ul>
+        <hr>
+        <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+          <!-- MidContent -->
+          <!-- <p class="adtext">Advertisement</p> -->
+
+          <div id="adngin-mid_content-0"></div>
+
+        </div>
+        <hr>
+
+        <h2>XLink - Going Further</h2>
+        <p>In the example above we have demonstrated simple XLinks. XLink is getting
+          more
+          interesting when accessing remote locations as resources, instead of
+          standalone pages.</p>
+        <p>If we set the value of the xlink:show
+          attribute to "embed", the linked resource should be processed inline
+          within the page. When you consider that this could be
+          another XML document you could, for example, build a hierarchy of XML documents.</p>
+        <p>You can also specify WHEN the resource should appear, with
+          the xlink:actuate attribute.</p>
+        <hr>
+        <h2>XLink Attribute Reference</h2>
+
+        <table class="ws-table-all notranslate">
+          <tbody>
+            <tr>
+              <th>Attribute</th>
+              <th>Value</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>xlink:actuate</td>
+              <td>onLoad<br>
+                onRequest<br>
+                other<br>
+                none</td>
+              <td>Defines when the linked resource is read and shown:
+                <ul>
+                  <li>onLoad - the resource should be loaded and shown when the document loads</li>
+                  <li>onRequest - the resource is not read or shown before the link is clicked</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>xlink:href</td>
+              <td><i>URL</i></td>
+              <td>Specifies the URL to link to</td>
+            </tr>
+            <tr>
+              <td>xlink:show</td>
+              <td>embed<br>
+                new<br>
+                replace<br>
+                other<br>
+                none</td>
+              <td>Specifies where to open the link. Default is "replace"</td>
+            </tr>
+            <tr>
+              <td>xlink:type</td>
+              <td>simple<br>
+                extended<br>
+                locator<br>
+                arc<br>
+                resource<br>
+                title<br>
+                none</td>
+              <td>Specifies the type of link</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <hr>
+        <h2>XPointer</h2>
+        <table style="width:100%;border:0">
+          <tbody>
+            <tr>
+              <td style="vertical-align:top;width:165px">
+                <img src="pic_xpath.gif" alt="XPath">
+              </td>
+              <td>
+                <ul>
+                  <li>XPointer allows links to point to specific parts of an XML document</li>
+                  <li>XPointer uses XPath expressions to navigate in the XML document</li>
+                  <li>XPointer is a W3C Recommendation</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+
+        <h2>XPointer Browser Support</h2>
+        <p>There is no browser support for XPointer. But XPointer is used in other
+          XML languages.</p>
+
+        <hr>
+
+        <h2>XPointer Example</h2>
+        <p>In this example, we will use XPointer in conjunction with XLink to point to a specific part of another
+          document.</p>
+        <p>We will start by looking at the target XML document (the document we are
+          linking to):</p>
+        <div class="w3-example">
+          <div class="w3-code notranslate htmlHigh">
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>?xml<span class="attributecolor" style="color:red"> version<span
+                  class="attributevaluecolor" style="color:mediumblue">="1.0"</span> encoding<span
+                  class="attributevaluecolor" style="color:mediumblue">="UTF-8"</span>?</span><span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>dogbreeds<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>dog<span class="attributecolor" style="color:red"> breed<span
+                  class="attributevaluecolor" style="color:mediumblue">="Rottweiler"</span> id<span
+                  class="attributevaluecolor" style="color:mediumblue">="Rottweiler"</span></span><span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>picture<span class="attributecolor" style="color:red"> url<span
+                  class="attributevaluecolor" style="color:mediumblue">="https://dog.com/rottweiler.gif"</span>
+                /</span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>history<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>The Rottweiler's ancestors were probably Roman<br>
+            &nbsp;
+            drover dogs.....<span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/history<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>temperament<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>Confident, bold, alert and imposing, the Rottweiler<br>
+            &nbsp;
+            is a popular choice for its ability to protect....<span class="tagnamecolor" style="color:brown"><span
+                class="tagcolor" style="color:mediumblue">&lt;</span>/temperament<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/dog<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>dog<span class="attributecolor" style="color:red"> breed<span
+                  class="attributevaluecolor" style="color:mediumblue">="FCRetriever"</span> id<span
+                  class="attributevaluecolor" style="color:mediumblue">="FCRetriever"</span></span><span
+                class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>picture<span class="attributecolor" style="color:red"> url<span
+                  class="attributevaluecolor" style="color:mediumblue">="https://dog.com/fcretriever.gif"</span>
+                /</span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>history<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>One of the earliest uses of retrieving dogs was to<br>
+            &nbsp;
+            help fishermen retrieve fish from the water....<span class="tagnamecolor" style="color:brown"><span
+                class="tagcolor" style="color:mediumblue">&lt;</span>/history<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>temperament<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>The flat-coated retriever is a sweet, exuberant,<br>
+            &nbsp;
+            lively dog that loves to play and retrieve....<span class="tagnamecolor" style="color:brown"><span
+                class="tagcolor" style="color:mediumblue">&lt;</span>/temperament<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/dog<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/dogbreeds<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>
+          </div>
+        </div>
+
+        <p>Note that the XML document above uses id attributes on each element!</p>
+        <p>So, instead of linking to the entire document (as with XLink), XPointer allows you to link to specific parts
+          of the document. To link to a specific part of a
+          page, add a number sign (#) and an XPointer expression after the URL in the xlink:href
+          attribute, like this: xlink:href="https://dog.com/dogbreeds.xml#xpointer(id('Rottweiler'))". The expression
+          refers to the element in the target document, with the id value of "Rottweiler".</p>
+        <p>XPointer also allows a shorthand method for linking to an element with an id. You can use the
+          value of the id directly, like this: xlink:href="https://dog.com/dogbreeds.xml#Rottweiler".</p>
+        <p>The following XML document contains links to more information of the dog breed for each of
+          my dogs:</p>
+        <div class="w3-example">
+          <div class="w3-code notranslate htmlHigh">
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>?xml<span class="attributecolor" style="color:red"> version<span
+                  class="attributevaluecolor" style="color:mediumblue">="1.0"</span> encoding<span
+                  class="attributevaluecolor" style="color:mediumblue">="UTF-8"</span>?</span><span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>mydogs<span class="attributecolor" style="color:red">
+                xmlns:xlink<span class="attributevaluecolor"
+                  style="color:mediumblue">="http://www.w3.org/1999/xlink"</span></span><span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>mydog<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>description<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            Anton is my favorite dog. He has won a lot of.....<br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/description<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>&nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>fact<span class="attributecolor" style="color:red"> xlink:type<span
+                  class="attributevaluecolor" style="color:mediumblue">="simple"</span> xlink:href<span
+                  class="attributevaluecolor"
+                  style="color:mediumblue">="https://dog.com/dogbreeds.xml#Rottweiler"</span></span><span
+                class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; Fact about Rottweiler <br>&nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/fact<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/mydog<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>mydog<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>description<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            Pluto is the sweetest dog on earth......<br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/description<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>fact<span class="attributecolor" style="color:red"> xlink:type<span
+                  class="attributevaluecolor" style="color:mediumblue">="simple"</span> xlink:href<span
+                  class="attributevaluecolor"
+                  style="color:mediumblue">="https://dog.com/dogbreeds.xml#FCRetriever"</span></span><span
+                class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; Fact about flat-coated Retriever
+            <br>&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/fact<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/mydog<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/mydogs<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>
+          </div>
+        </div>
+        <br>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+      </section>
+
+      <section id="validator" class="content-section hidden">
+        <h1>XML <span class="color_h1">Validator</span></h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <p class="intro">Use our XML validator to syntax-check your XML.</p>
+        <hr>
+        <h2>Well Formed XML Documents</h2>
+        <p>An XML document with correct syntax is called "Well Formed".</p>
+        <p>The syntax rules were described in the previous chapters:</p>
+        <ul>
+          <li>XML documents must have a root element</li>
+          <li>XML elements must have a closing tag</li>
+          <li>XML tags are case sensitive</li>
+          <li>XML elements must be properly nested</li>
+          <li>XML attribute values must be quoted</li>
+        </ul>
+
+        <div class="w3-example">
+          <div class="w3-code notranslate htmlHigh">
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>?xml<span class="attributecolor" style="color:red"> version<span
+                  class="attributevaluecolor" style="color:mediumblue">="1.0"</span> encoding<span
+                  class="attributevaluecolor" style="color:mediumblue">="UTF-8<strong>"</strong></span>?</span><span
+                class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>note<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>to<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>Tove<span class="tagnamecolor" style="color:brown"><span
+                class="tagcolor" style="color:mediumblue">&lt;</span>/to<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>from<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>Jani<span class="tagnamecolor" style="color:brown"><span
+                class="tagcolor" style="color:mediumblue">&lt;</span>/from<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>heading<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>Reminder<span class="tagnamecolor" style="color:brown"><span
+                class="tagcolor" style="color:mediumblue">&lt;</span>/heading<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>body<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>Don't forget me this weekend!<span class="tagnamecolor"
+              style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/note<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>
+          </div>
+        </div>
+        <hr>
+
+        <h2>XML Errors Will Stop You</h2>
+        <p>Errors in XML documents will stop your XML applications.</p>
+        <p>The W3C XML specification states that a program should stop processing an XML document if it finds an error.
+          The reason is that XML software should be small, fast, and compatible.</p>
+        <p>HTML browsers are allowed to display HTML documents with errors (like missing end tags). </p>
+        <p><b>With XML, errors are not allowed.</b></p>
+        <hr>
+        <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+          <!-- MidContent -->
+          <!-- <p class="adtext">Advertisement</p> -->
+
+          <div id="adngin-mid_content-0"></div>
+
+        </div>
+        <hr>
+        <h2>Syntax-Check Your XML</h2>
+        <p>To help you syntax-check your XML, we have created an XML validator.</p>
+
+        <p>Try to syntax-check correct XML : <input type="button" value="Check XML" onclick="validateXML('xml1')"></p>
+        <textarea id="xml1" rows="10" style="width:100%" cols="20" name="xml1">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+            &lt;note&gt;
+            &lt;to&gt;Tove&lt;/to&gt;
+            &lt;from&gt;Jani&lt;/from&gt; 
+            &lt;heading&gt;Reminder&lt;/heading&gt;
+            &lt;body&gt;Don't forget me this weekend!&lt;/body&gt;
+            &lt;/note&gt;
+            </textarea>
+        <p>Try to syntax-check incorrect XML : <input type="button" value="Check XML" onclick="validateXML('xml2')"></p>
+        <textarea id="xml2" rows="10" style="width:100%" cols="20" name="xml2">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+            &lt;note&gt;
+            &lt;to&gt;Tove&lt;/to&gt;
+            &lt;from&gt;Jani&lt;/from&gt; 
+            &lt;heading&gt;Reminder&lt;/pheading&gt;
+            &lt;body&gt;Don't forget me this weekend!&lt;/body&gt;
+            &lt;/note&gt;
+            </textarea>
+        <p>Try to syntax-check your own XML : <input type="button" value="Check XML" onclick="validateXML('xml3')"></p>
+        <textarea id="xml3" rows="10" style="width:100%" cols="20" name="xml3">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+            </textarea>
+        <br>
+        <hr>
+
+        <h2>Valid XML Documents</h2>
+        <p>A "well formed" XML document is not the same as a "valid" XML document.</p>
+        <p>A "valid" XML document must be well formed. In addition, it must conform to a
+          document type definition.</p>
+        <p>There are two different document type definitions that can be used with XML:</p>
+        <ul>
+          <li>DTD - The original Document Type Definition</li>
+          <li>XML Schema - An XML-based alternative to DTD</li>
+        </ul>
+        <p>A document type definition defines the rules and the legal elements and attributes
+          for an XML document.</p>
+        <br>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+      </section>
+
+      <section id="dtd" class="content-section hidden">
+        <h1>XML <span class="color_h1">DTD</span></h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+
+        </div>
+        <br>
+        <hr>
+        <p class="intro">An XML document with correct syntax is called "Well Formed".</p>
+        <p class="intro">An XML document validated against a DTD is both "Well Formed"
+          and "Valid".</p>
+        <hr>
+
+        <h2>What is a DTD?</h2>
+        <p>DTD stands for Document Type Definition.</p>
+        <p>A DTD defines the structure and the legal elements and attributes of an XML document.</p>
+
+        <hr>
+
+        <h2>Valid XML Documents</h2>
+        <p>A "Valid" XML document is "Well Formed", as well as it conforms to the rules of a
+          DTD:</p>
+
+        <div class="w3-example">
+          <div class="w3-code notranslate htmlHigh">
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>?xml<span class="attributecolor" style="color:red"> version<span
+                  class="attributevaluecolor" style="color:mediumblue">="1.0"</span> encoding<span
+                  class="attributevaluecolor" style="color:mediumblue">="UTF-8"</span>?</span><span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>!DOCTYPE<span class="attributecolor" style="color:red"> note SYSTEM
+                "Note.dtd"</span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>note<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>to<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>Tove<span class="tagnamecolor" style="color:brown"><span
+                class="tagcolor" style="color:mediumblue">&lt;</span>/to<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>from<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>Jani<span class="tagnamecolor" style="color:brown"><span
+                class="tagcolor" style="color:mediumblue">&lt;</span>/from<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>heading<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>Reminder<span class="tagnamecolor" style="color:brown"><span
+                class="tagcolor" style="color:mediumblue">&lt;</span>/heading<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>body<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>Don't forget me this weekend!<span class="tagnamecolor"
+              style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/note<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>
+          </div>
+        </div>
+
+        <p>The DOCTYPE declaration above contains a reference to a DTD file. The content of the
+          DTD file is shown and explained below.</p>
+        <hr>
+
+        <h2>XML DTD</h2>
+        <p>The purpose of a DTD is to define the structure and the legal elements and
+          attributes of an XML document:</p>
+
+        <div class="w3-example">
+          <h3>Note.dtd:</h3>
+          <div class="w3-code notranslate">
+            &lt;!DOCTYPE note<br>
+            [<br>
+            &lt;!ELEMENT note (to,from,heading,body)&gt;<br>
+            &lt;!ELEMENT to (#PCDATA)&gt;<br>
+            &lt;!ELEMENT from (#PCDATA)&gt;<br>
+            &lt;!ELEMENT heading (#PCDATA)&gt;<br>
+            &lt;!ELEMENT body (#PCDATA)&gt;<br>
+            ]&gt;</div>
+        </div>
+
+        <p>The DTD above is interpreted like this:</p>
+        <ul>
+          <li>!DOCTYPE note -&nbsp; Defines that the root element of the document is note</li>
+          <li>!ELEMENT note - Defines that the note element must contain the elements: "to, from, heading, body"</li>
+          <li>!ELEMENT to - Defines the to element to be of type "#PCDATA"</li>
+          <li>!ELEMENT from - Defines the from element to be of type "#PCDATA"</li>
+          <li>!ELEMENT heading&nbsp; - Defines the heading element to be of type "#PCDATA"</li>
+          <li>!ELEMENT body - Defines the body element to be of type "#PCDATA"</li>
+        </ul>
+
+        <div class="w3-panel w3-note">
+          <p><strong>Tip:</strong> #PCDATA means parseable character data.</p>
+        </div>
+        <hr>
+        <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+          <!-- MidContent -->
+          <!-- <p class="adtext">Advertisement</p> -->
+
+          <div id="adngin-mid_content-0"></div>
+
+        </div>
+        <hr>
+
+        <h2>Using DTD for Entity Declaration</h2>
+        <p>A DOCTYPE declaration can also be used to define special characters or strings, used in the document:</p>
+        <div class="w3-example">
+          <h3>Example</h3>
+          <div class="w3-code notranslate">
+            &lt;?xml version="1.0" encoding="UTF-8"?&gt;<br><br>&lt;!DOCTYPE note [<br>&lt;!ENTITY nbsp
+            "&amp;#xA0;"&gt; <br>&lt;!ENTITY writer "Writer: Donald Duck."&gt;<br>
+            &lt;!ENTITY copyright "Copyright: W3Schools."&gt;<br>]&gt;<br><br>
+            &lt;note&gt;<br>&lt;to&gt;Tove&lt;/to&gt;<br>&lt;from&gt;Jani&lt;/from&gt;<br>
+            &lt;heading&gt;Reminder&lt;/heading&gt;<br>&lt;body&gt;Don't forget me this weekend!&lt;/body&gt;<br>
+            &lt;footer&gt;&amp;writer;&amp;nbsp;&amp;copyright;&lt;/footer&gt;<br>
+            &lt;/note&gt;
+          </div>
+          <a target="_blank" href="note_entities.xml" class="w3-btn w3-margin-bottom">Try it Yourself »</a>
+        </div>
+
+        <div class="w3-panel w3-note">
+          <p><strong>Tip:</strong> An entity has three parts: it starts with an ampersand (&amp;),
+            then comes the entity name, and it ends with a semicolon (;).</p>
+        </div>
+        <hr>
+
+        <h2>When to Use a DTD?</h2>
+        <p>With a DTD, independent groups of people can agree to use a standard DTD for
+          interchanging data.</p>
+        <p>With a DTD, you can verify that the data you receive from the outside world is valid.</p>
+        <p>You can also use a DTD to verify your own data.</p>
+        <p>If you want to study DTD, please read our <a href="xml_dtd_intro.asp">DTD Tutorial</a>.</p>
+        <hr>
+
+        <h2>When NOT to Use a DTD?</h2>
+        <p>XML does not require a DTD.</p>
+        <p>When you are experimenting with XML, or when you are working with small XML
+          files, creating DTDs may be a waste of time.</p>
+        <p>If you develop applications,
+          wait until the specification is stable before you add a DTD.
+          Otherwise, your software might stop working because of validation errors.</p>
+        <br>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+      </section>
+
+      <section id="schema" class="content-section hidden">
+        <h1>XML <span class="color_h1">Schema</span></h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <p class="intro">An XML Schema describes the structure of an XML document, just
+          like a DTD.</p>
+        <p class="intro">An XML document with correct syntax is called "Well Formed".</p>
+        <p class="intro">An XML document validated against an XML Schema is both "Well
+          Formed" and "Valid".</p>
+        <hr>
+
+        <h2>XML Schema</h2>
+        <p>XML Schema is an XML-based alternative to DTD:</p>
+
+        <div class="w3-example">
+          <div class="w3-code notranslate htmlHigh">
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>xs:element<span class="attributecolor" style="color:red"> name<span
+                  class="attributevaluecolor" style="color:mediumblue">="note"</span></span><span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>xs:complexType<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            &nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>xs:sequence<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;&nbsp;&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>xs:element<span class="attributecolor" style="color:red"> name<span
+                  class="attributevaluecolor" style="color:mediumblue">="to"</span>&nbsp;type<span
+                  class="attributevaluecolor" style="color:mediumblue">="xs:string"</span>/</span><span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;&nbsp;&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>xs:element<span class="attributecolor" style="color:red"> name<span
+                  class="attributevaluecolor" style="color:mediumblue">="from"</span>&nbsp;type<span
+                  class="attributevaluecolor" style="color:mediumblue">="xs:string"</span>/</span><span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;&nbsp;&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>xs:element<span class="attributecolor" style="color:red"> name<span
+                  class="attributevaluecolor" style="color:mediumblue">="heading"</span> type<span
+                  class="attributevaluecolor" style="color:mediumblue">="xs:string"</span>/</span><span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;&nbsp;&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>xs:element<span class="attributecolor" style="color:red"> name<span
+                  class="attributevaluecolor" style="color:mediumblue">="body"</span>&nbsp;type<span
+                  class="attributevaluecolor" style="color:mediumblue">="xs:string"</span>/</span><span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            &nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/xs:sequence<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/xs:complexType<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/xs:element<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>
+          </div>
+        </div>
+
+        <p>The Schema above is interpreted like this:</p>
+        <ul>
+          <li>&lt;xs:element name="note"&gt; defines the element called "note"</li>
+          <li>&lt;xs:complexType&gt; the "note" element is a complex type</li>
+          <li>&lt;xs:sequence&gt; the complex type is a sequence of elements</li>
+          <li>&lt;xs:element name="to"&nbsp;type="xs:string"&gt; the element "to" is of type string (text)</li>
+          <li>&lt;xs:element name="from"&nbsp;type="xs:string"&gt; the element "from" is of type string</li>
+          <li>&lt;xs:element name="heading"&nbsp;type="xs:string"&gt; the element "heading" is of type string</li>
+          <li>&lt;xs:element name="body"&nbsp;type="xs:string"&gt; the element "body" is of type string</li>
+        </ul>
+        <hr>
+
+        <h2>XML Schemas are More Powerful than DTD</h2>
+
+        <ul>
+          <li>XML Schemas are written in XML</li>
+          <li>XML Schemas are extensible to additions</li>
+          <li>XML Schemas support data types</li>
+          <li>XML Schemas support namespaces</li>
+        </ul>
+        <hr>
+        <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+          <!-- MidContent -->
+          <!-- <p class="adtext">Advertisement</p> -->
+
+          <div id="adngin-mid_content-0"></div>
+
+        </div>
+        <hr>
+        <h2>Why Use an XML Schema?</h2>
+        <p>With XML Schema, your XML files can carry a description of its own format.</p>
+        <p>With XML Schema, independent groups of people can agree on a standard for interchanging data.</p>
+        <p>With XML Schema, you can verify data.</p>
+
+
+        <hr>
+        <h2>XML Schemas Support Data Types</h2>
+
+        <p>One of the greatest strengths of XML Schemas is the support for data types:</p>
+        <ul>
+          <li>It is easier to describe document content</li>
+          <li>It is easier to define restrictions on data</li>
+          <li>It is easier to validate the correctness of data</li>
+          <li>It is easier to convert data between different data types</li>
+        </ul>
+        <hr>
+        <h2>XML Schemas use XML Syntax</h2>
+        <p>Another great strength about XML Schemas is that they are written in XML:</p>
+        <ul>
+          <li>You don't have to learn a new language</li>
+          <li>You can use your XML editor to edit your Schema files</li>
+          <li>You can use your XML parser to parse your Schema files</li>
+          <li>You can manipulate your Schemas with the XML DOM</li>
+          <li>You can transform your Schemas with XSLT</li>
+        </ul>
+
+
+        <p>If you want to study XML Schema, please read our
+          <a href="schema_intro.asp">XML Schema Tutorial</a>.
+        </p>
+      </section>
+
+      <section id="server" class="content-section hidden">
+        <h1>XML <span class="color_h1">on the Server</span></h1>
+        <div class="navigation-buttons">
+          <button id="prevButton" onclick="navigateSection('prev')">❮ Previous</button>
+          <button id="nextButton" onclick="navigateSection('next')">Next ❯</button>
+        </div>
+        <br>
+        <hr>
+        <p class="intro">XML files are plain text files just like HTML files. </p>
+        <p class="intro">XML can easily be stored and generated by a standard web server.</p>
+        <hr>
+
+        <h2>Storing XML Files on the Server</h2>
+        <p>XML files can be stored on an Internet server exactly the same way as HTML files.</p>
+        <p>Start Windows Notepad and write the following lines:</p>
+
+        <div class="w3-example">
+          <div class="w3-code notranslate htmlHigh">
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>?xml<span class="attributecolor" style="color:red"> version<span
+                  class="attributevaluecolor" style="color:mediumblue">="1.0"</span> encoding<span
+                  class="attributevaluecolor" style="color:mediumblue">="UTF-8"</span>?</span><span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>note<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>from<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>Jani<span class="tagnamecolor" style="color:brown"><span
+                class="tagcolor" style="color:mediumblue">&lt;</span>/from<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>to<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>Tove<span class="tagnamecolor" style="color:brown"><span
+                class="tagcolor" style="color:mediumblue">&lt;</span>/to<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+            &nbsp;
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>message<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span>Remember me this weekend<span class="tagnamecolor"
+              style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/message<span
+                class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+            <span class="tagnamecolor" style="color:brown"><span class="tagcolor"
+                style="color:mediumblue">&lt;</span>/note<span class="tagcolor"
+                style="color:mediumblue">&gt;</span></span><br>
+          </div>
+        </div>
+        <p>Save the file on your web server with a proper name like "note.xml".</p>
+        <hr>
+
+        <h2>Generating XML with PHP</h2>
+        <p>XML can be generated on a server without any installed XML software.</p>
+        <p>To generate an XML response from the server using PHP, use following code:</p>
+
+        <div class="w3-example">
+          <div class="w3-code notranslate">
+            &lt;?php<br>
+            header("Content-type: text/xml");<br>
+            echo "&lt;?xml version='1.0' encoding='UTF-8<strong>'</strong>?&gt;";<br>
+            echo "&lt;note&gt;";<br>
+            echo "&lt;from&gt;Jani&lt;/from&gt;";<br>
+            echo "&lt;to&gt;Tove&lt;/to&gt;";<br>
+            echo "&lt;message&gt;Remember me this weekend&lt;/message&gt;";<br>
+            echo "&lt;/note&gt;";<br>
+            ?&gt;
+          </div>
+        </div>
+
+        <p>Note that the content type of the response header must be set to "text/xml".</p>
+        <p><a target="_blank" href="note.php">See how the PHP file will be returned from the server</a>.</p>
+        <p>If you want to study PHP, you will find our PHP tutorial on our <a href="/default.asp">homepage</a>.</p>
+        <hr>
+        <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+          <!-- MidContent -->
+          <!-- <p class="adtext">Advertisement</p> -->
+
+          <div id="adngin-mid_content-0"></div>
+
+        </div>
+        <hr>
+
+        <h2>Generating XML with ASP</h2>
+        <p>To generate an XML response from the server - simply write the following code and save it as an ASP file on
+          the web server:</p>
+
+        <div class="w3-example">
+          <div class="w3-code notranslate">
+            &lt;%<br>
+            response.ContentType="text/xml"<br>
+            response.Write("&lt;?xml version='1.0' encoding='UTF-8<strong>'</strong>?&gt;")<br>
+            response.Write("&lt;note&gt;")<br>
+            response.Write("&lt;from&gt;Jani&lt;/from&gt;")<br>
+            response.Write("&lt;to&gt;Tove&lt;/to&gt;")<br>
+            response.Write("&lt;message&gt;Remember me this weekend&lt;/message&gt;")<br>
+            response.Write("&lt;/note&gt;")<br>
+            %&gt;
+          </div>
+        </div>
+
+        <p>Note that the content type of the response must be set to "text/xml".</p>
+        <p><a target="_blank" href="note.asp">See how the ASP file will be returned from the server</a>.</p>
+        <p>If you want to study ASP, you will find our ASP tutorial on our <a href="/default.asp">homepage</a>.</p>
+        <hr>
+
+        <h2>Generating XML From a Database</h2>
+        <p>XML can be generated from a database without any installed XML software.</p>
+        <p>To generate an XML database response from the server, simply write the following code and save it as an ASP
+          file on the web server:</p>
+
+        <div class="w3-example">
+          <div class="w3-code notranslate">
+            &lt;%<br>
+            response.ContentType = "text/xml"<br>
+            set conn=Server.CreateObject("ADODB.Connection")<br>
+            conn.provider="Microsoft.Jet.OLEDB.4.0;"<br>
+            conn.open server.mappath("/<em>datafolder</em>/database.mdb")<br><br>
+            sql="select fname,lname from tblGuestBook"<br>
+            set rs=Conn.Execute(sql)<br><br>
+            response.write("&lt;?xml version='1.0' encoding='UTF-8<strong>'</strong>?&gt;")<br>
+            response.write("&lt;guestbook&gt;")<br>
+            while (not rs.EOF)<br>
+            response.write("&lt;guest&gt;")<br>
+            response.write("&lt;fname&gt;" &amp; rs("fname") &amp; "&lt;/fname&gt;")<br>
+            response.write("&lt;lname&gt;" &amp; rs("lname") &amp; "&lt;/lname&gt;")<br>
+            response.write("&lt;/guest&gt;")<br>
+            rs.MoveNext()<br>
+            wend<br><br>
+            rs.close()<br>
+            conn.close()<br>
+            response.write("&lt;/guestbook&gt;")<br>
+            %&gt;<br>
+          </div>
+        </div>
+
+        <p><a target="_blank" href="guestbook.asp">See the real life database output from the ASP file above</a>.</p>
+        <p>The example above uses ASP with ADO.</p>
+        <p>If you want to study ASP and ADO, you will find the tutorials on our <a href="/default.asp">homepage</a>.</p>
+        <hr>
+
+        <h2>Transforming XML with XSLT on the Server</h2>
+        <p>This ASP transforms an XML file to XHTML on the server:</p>
+
+        <div class="w3-example">
+          <div class="w3-code notranslate">
+            &lt;%<br>
+            'Load XML<br>
+            set xml = Server.CreateObject("Microsoft.XMLDOM")<br>
+            xml.async = false<br>
+            xml.load(Server.MapPath("simple.xml"))<br><br>
+            'Load XSL<br>
+            set xsl = Server.CreateObject("Microsoft.XMLDOM")<br>
+            xsl.async = false<br>
+            xsl.load(Server.MapPath("simple.xsl"))<br><br>
+            'Transform file<br>
+            Response.Write(xml.transformNode(xsl))<br>
+            %&gt;
+          </div>
+        </div>
+
+        <p>Example explained</p>
+        <ul>
+          <li>The first block of code creates an instance of the Microsoft XML parser (XMLDOM), and loads the XML file
+            into memory.</li>
+          <li>The second block of code creates another instance of the parser and loads the XSL file into memory.</li>
+          <li>The last line of code transforms the XML document using the XSL document, and sends the result as XHTML to
+            your browser. Nice!</li>
+        </ul>
+        <p><a target="_blank" href="simple.asp">See how it works</a>.</p>
+
+      </section>
+
+    </main>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+
+</html>
